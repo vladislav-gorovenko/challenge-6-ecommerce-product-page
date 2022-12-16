@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    min-height: 100vh;
+    font-size: 16px;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--dark-grayish-blue);
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+:root {
+    /* primary */
+    --orange: hsl(26, 100%, 55%);
+    --light-orange: hsla(26, 100%, 55%, 0.291);
+    --pale-orange: hsl(25, 100%, 94%);
+
+    /* neutral */
+    --very-dark-blue: hsl(220, 13%, 13%);
+    --dark-grayish-blue: hsl(219, 9%, 45%);
+    --grayish-blue: hsl(220, 14%, 75%);
+    --light-grayish-blue: hsl(223, 64%, 98%);
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(0, 0%, 0%); /* (with 75% opacity for lightbox background) */
+}
+
+.container {
+    width: 78%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* header */
+
+header {
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.nav-menu {
+    width: 100%;
+    height: 100%;
+    padding: 4rem 0;
+    display: grid;
+
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    border-bottom: 0.5px solid var(--dark-grayish-blue);
+    
+}
+
+.nav {
+    margin: 0 6rem;
+    display: flex;
+}
+
+.nav li{
+    margin-left: 3.2rem;
+}
+
+.nav li a {
+    font-size: 1.5rem;
+}
+
+.cart-and-profile-img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.avatar {
+    height: 55px;
+    margin-left: 3rem;
+}
+
+/* main-container */
+
+main {
+    padding: 10rem 5rem;
+    min-height: 90vh;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* images section */
+
+.images-section {
+    flex: 0 0 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 10rem 10rem 0;
+}
+
+.main-img {
+    height: 500px;
+    border-radius: 1rem;
+}
+
+.images-to-select-from {
+    margin-top: 4.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.images-to-select-from img {
+    height: 88px;
+    border-radius: 0.5rem;
+    border: 2px solid var(--white);
+}
+
+.images-to-select-from div {
+    position: relative;
+    height: 88px;
+    width: 88px;
+    overflow: hidden;
+}
+
+.images-to-select-from div div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.5rem;
+    border: 2px solid var(--orange);
+    z-index: -1;
+}
+
+.images-to-select-from div.selected-img div {
+    z-index: 2;
+}
+.images-to-select-from div.selected-img img {
+    opacity: 0.5;
+}
+
+
+/* form section */
+
+.form-section {
+    flex: 0 1 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 10rem;
+}
+
+.form-section > * {
+    margin-top: 3rem;
+}
+
+.company-description {
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1.5;
+    color: var(--orange);
+}
+
+.sneakers-model {
+    margin-top: 2rem;
+    font-size: 5rem;
+    color: var(--very-dark-blue);
+}
+
+.sneakers-description {
+    color: var(--dark-grayish-blue);
+    line-height: 1.8;
+}
+
+.prices {
+    display: flex;
+    flex-direction: column;
+    color: var(--very-dark-blue);
+}
+
+.prices div {
+    position: relative;
+}
+
+.initial-price {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.unsale {
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.4rem 0.6rem;
+    border-radius: 5px;
+    background: var(--pale-orange);
+    color: var(--orange);
+}
+
+.final-price {
+    margin-top: 1.2rem;
+    color: var(--grayish-blue);
+    text-decoration: line-through;
+}
+
+.add-to-cart-section {
+    width: 100%;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+}
+
+.quantity, .add-to-cart {
+    border-radius: 5px;
+}
+
+.quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5rem;
+    padding: 1rem;
+    background: var(--light-grayish-blue);
+    font-weight: bold;
+}
+
+.add-to-cart {
+    background: var(--orange);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0px 10px 15px 0px var(--light-orange);
+}
+
+
+.add-to-cart svg {
+    fill: white;
+    margin-right: 1.2rem;
+}
+
