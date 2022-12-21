@@ -19,12 +19,24 @@ let popupPreviousBtnEl = document.querySelector(".main-img-container .svg-contai
 let popupNextBtnEl = document.querySelector(".main-img-container .svg-container-next")
 let popupImagesToSelectFrom = document.querySelectorAll(".popup-images-to-select-from img")
 let popupMainImgEl = document.querySelector(".main-img-container .main-img")
+let menuEl = document.querySelector(".menu")
+let popupMenuEl = document.querySelector(".popup-menu")
+let closePopupMenuEl = document.querySelector(".close-popup-menu")
 
 // initial function
 changeMainPicture(1)
 setQuantity(0)
 
 // event listeners
+window.addEventListener("resize", (e) => {
+    if (window.innerWidth > 1100) {
+        popupMenuEl.classList.remove("popup-menu-visible")
+    } 
+    if (window.innerWidth < 1100) {
+        popupMainEl.classList.remove("visible-flex")
+    }
+})
+
 imagesToSelectFrom.forEach((thumbnailImageEl) => {
     thumbnailImageEl.addEventListener("click", (e) => {
         let number = e.target.src.split("-thumbnail")[0].slice(-1)
@@ -76,9 +88,11 @@ cartIconEl.addEventListener("click", () => {
 })
 
 mainImgEl.addEventListener("click", () => {
-    let number = findMainPictureIndex()
-    changePopupMainPicture(number)
-    popupMainEl.classList.add("visible-flex")
+    if (window.innerWidth > 1510) {
+        let number = findMainPictureIndex()
+        changePopupMainPicture(number)
+        popupMainEl.classList.add("visible-flex")
+    }
 })
 
 crossEl.addEventListener("click", () => {
@@ -95,6 +109,14 @@ popupNextBtnEl.addEventListener("click", () => {
     let number = findPopupMainPictureIndex()
     let newNumber = increaseNumber(number)
     changePopupMainPicture(newNumber)
+})
+
+menuEl.addEventListener("click", () => {
+    popupMenuEl.classList.add("popup-menu-visible")
+})
+
+closePopupMenuEl.addEventListener("click", () => {
+    popupMenuEl.classList.remove("popup-menu-visible")
 })
 
 // functions 
