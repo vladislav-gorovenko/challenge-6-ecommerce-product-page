@@ -15,8 +15,8 @@
 
 ### Links
 
-- Solution URL:
-- Live Site URL:
+- Solution URL: https://github.com/martinideniam/project-9-ecommerce-product-page
+- Live Site URL: https://martinideniam.github.io/project-9-ecommerce-product-page/
 
 ### Built with
 
