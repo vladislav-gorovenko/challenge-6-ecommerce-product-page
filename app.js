@@ -13,6 +13,12 @@ let addToCartBtnEl = document.querySelector(".add-to-cart")
 let quantityInCart = document.querySelector(".quantity-in-cart")
 let cartIconEl = document.querySelector(".cart")
 let popUpCartEl = document.querySelector(".popup-cart")
+let popupMainEl = document.querySelector(".popup-main")
+let crossEl = document.querySelector(".cross")
+let popupPreviousBtnEl = document.querySelector(".main-img-container .svg-container-previous") 
+let popupNextBtnEl = document.querySelector(".main-img-container .svg-container-next")
+let popupImagesToSelectFrom = document.querySelectorAll(".popup-images-to-select-from img")
+let popupMainImgEl = document.querySelector(".main-img-container .main-img")
 
 // initial function
 changeMainPicture(1)
@@ -23,6 +29,14 @@ imagesToSelectFrom.forEach((thumbnailImageEl) => {
     thumbnailImageEl.addEventListener("click", (e) => {
         let number = e.target.src.split("-thumbnail")[0].slice(-1)
         changeMainPicture(number)
+        thumbnailImageEl.parentElement.classList.add("selected-img")
+    })
+})
+
+popupImagesToSelectFrom.forEach((thumbnailImageEl) => {
+    thumbnailImageEl.addEventListener("click", (e) => {
+        let number = e.target.src.split("-thumbnail")[0].slice(-1)
+        changePopupMainPicture(number)
         thumbnailImageEl.parentElement.classList.add("selected-img")
     })
 })
@@ -61,6 +75,27 @@ cartIconEl.addEventListener("click", () => {
     popUpCartEl.classList.toggle("visible")
 })
 
+mainImgEl.addEventListener("click", () => {
+    let number = findMainPictureIndex()
+    changePopupMainPicture(number)
+    popupMainEl.classList.add("visible-flex")
+})
+
+crossEl.addEventListener("click", () => {
+    popupMainEl.classList.remove("visible-flex")
+})
+
+popupPreviousBtnEl.addEventListener("click", () => {
+    let number = findPopupMainPictureIndex()
+    let newNumber = reduceNumber(number)
+    changePopupMainPicture(newNumber)
+})
+
+popupNextBtnEl.addEventListener("click", () => {
+    let number = findPopupMainPictureIndex()
+    let newNumber = increaseNumber(number)
+    changePopupMainPicture(newNumber)
+})
 
 // functions 
 function changeMainPicture(number) {
@@ -71,14 +106,32 @@ function changeMainPicture(number) {
     imageSelected.classList.add("selected-img")
 }
 
+function changePopupMainPicture(number) {
+    removePopupSelectedTags()
+    let newPictureUrl = `./images/image-product-${number}.jpg`
+    popupMainImgEl.src = newPictureUrl
+    let imageSelected = document.querySelectorAll(".popup-images-to-select-from img")[number-1].parentElement
+    imageSelected.classList.add("selected-img")
+}
+
 function removeSelectedTags() {
     imagesToSelectFrom.forEach((thumbnailImageEl) => {
         thumbnailImageEl.parentElement.classList.remove("selected-img")
     })
 } 
 
+function removePopupSelectedTags() {
+    popupImagesToSelectFrom.forEach((thumbnailImageEl) => {
+        thumbnailImageEl.parentElement.classList.remove("selected-img")
+    })
+}
+
 function findMainPictureIndex() {
     return mainImgEl.style.backgroundImage.split(`.jpg`)[0].slice(-1)
+}
+
+function findPopupMainPictureIndex() {
+    return popupMainImgEl.src.split(`.jpg`)[0].slice(-1)
 }
 
 function setQuantity(number) {
@@ -124,6 +177,15 @@ function increaseQuantityF(number) {
 function updateGlobalQuantity(number) {
     quantity += Number(number)
     updateQuantityInCart()
+    if (quantity!=0) {
+        quantityInCart.style.display = "block"
+    }
+}
+
+function resetGlobalQuantity() {
+    quantity = 0
+    updateQuantityInCart()
+    quantityInCart.style.display = "none"
 }
 
 function updateQuantityInCart() {
@@ -139,8 +201,8 @@ function updateQuantityInCart() {
             <p class="empty-cart-text">Your cart is empty</p>
         </div>
         `
+        popUpCartEl.innerHTML = innerHtmlForPopupCart
     } else {
-        quantityInCart.style.display = "block"
         quantityInCart.innerHTML = quantity
         innerHtmlForPopupCart = `
         <div class="popup-container">
@@ -157,12 +219,14 @@ function updateQuantityInCart() {
                         <p>$${125*quantity}.00</p>
                     </div>
                 </div>
-                <img src="./images/icon-delete.svg" alt="">
+                <img class="delete" src="./images/icon-delete.svg" alt="">
             </div>
             <button class="check-out button">Checkout</button>
         </div>
         `
+        popUpCartEl.innerHTML = innerHtmlForPopupCart
+        popUpCartEl.querySelector(".delete").addEventListener("click", () => {
+            resetGlobalQuantity()
+        })
     }
-    
-    popUpCartEl.innerHTML = innerHtmlForPopupCart
 }
