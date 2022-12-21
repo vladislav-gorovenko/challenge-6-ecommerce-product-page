@@ -77,47 +77,6 @@ header {
     display: none;
 }
 
-.popup-menu .nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-left: 2rem;
-    margin-top: 10rem;
-}
-
-.popup-menu .nav li {
-    margin: 2rem 0 0 0;
-}
-
-.popup-menu a {
-    color: var(--very-dark-blue);
-    font-size: 2.3rem;
-    font-weight: bold;
-}
-
-.popup-menu .nav li:hover a {
-    color: var(--dark-grayish-blue)
-}
-
-.close-popup-menu {
-    cursor: pointer;
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-}
-
-.popup-menu {
-    position: fixed;
-    height: 100vh;
-    background: var(--white);
-    display: none;
-}
-
-.popup-menu-visible {
-    display: block;
-}
-
 .nav {
     margin: 0 6rem;
     display: flex;
@@ -597,6 +556,69 @@ main {
     cursor: pointer;
 }
 
+/* popup menu */
+
+
+.popup-menu .nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 2rem;
+    margin-top: 10rem;
+}
+
+.popup-menu .nav li {
+    margin: 2rem 0 0 0;
+}
+
+.popup-menu .nav li a {
+    color: var(--very-dark-blue);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.popup-menu .nav li:hover a {
+    color: var(--dark-grayish-blue);
+}
+
+.close-popup-menu {
+    cursor: pointer;
+    margin: 1.5rem 3rem;
+}
+
+.popup-menu {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    z-index: 20;
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.background {
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.nav-container {
+    background: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 60%;
+}
+
+.popup-menu-visible {
+    display: block;
+}
+
 @media (max-width: 1510px) {
 
     .popup-main {
@@ -623,11 +645,6 @@ main {
         margin-right: 15px;
         cursor: pointer;
     }
-
-    .popup-menu {
-        z-index: 20;
-    }
-
     .nav {
         display: none;
     }
@@ -735,4 +752,30 @@ main {
         margin: 0;
     }
 
+}
+
+
+@media (max-width: 550px) {
+    .form-section {
+        flex: 1 0 100%;
+    }
+    .popup-cart {
+        width: 100%;
+    }
+}
+
+@media (max-width: 350px) {
+    .sneakers-model {
+        font-size: 4rem;
+    }
+    .sneakers-description {
+        font-size: 1.5rem;
+    }
+    .final-price {
+        font-size: 1.2rem;
+    }
+    .description-of-requisition p {
+        padding: 0 0.5rem;
+        font-size: 1.2rem;
+    }
 }
