@@ -88,7 +88,7 @@ cartIconEl.addEventListener("click", () => {
 })
 
 mainImgEl.addEventListener("click", () => {
-    if (window.innerWidth > 1510) {
+    if (window.innerWidth > 1320) {
         let number = findMainPictureIndex()
         changePopupMainPicture(number)
         popupMainEl.classList.add("visible-flex")

@@ -163,14 +163,14 @@ main {
 /* images section */
 
 .images-section {
-    flex: 0 0 500px;
+    flex: 0 0 450px;
     display: flex;
     flex-direction: column;
     margin: 0 5rem 10rem 0;
 }
 
 .main-img {
-    height: 500px;
+    height: 450px;
     border-radius: 1rem;
     background-image: url(./images/image-product-1.jpg);
     background-position: center;
@@ -251,8 +251,8 @@ main {
 /* form section */
 
 .form-section {
-    margin: 0 0 10rem 5rem;
-    flex: 0 0 500px;
+    margin: 0 0 10rem 0;
+    flex: 0 0 450px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -619,7 +619,7 @@ main {
     display: block;
 }
 
-@media (max-width: 1510px) {
+@media (max-width: 1320px) {
 
     .popup-main {
         display: none;
