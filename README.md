@@ -1,6 +1,10 @@
-# This is my solution to challenge by FrontendMentor: e-Commerce Product Page
+# e-Commerce Product Page
 
-### Apart from making sure project looks the same as design files provided by Frontendmentor, I had to do the following:
+Welcome to my e-Commerce Product Page web app repository. This project is a solution to the e-Commerce Product Page web app challenge on [Frontend Mentor](https://www.frontendmentor.io).
+
+## The Challenge
+
+The challenge involved building an application that allowed users to:
 
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
@@ -9,18 +13,32 @@
 - Add items to the cart
 - View the cart and remove items from it
 
-### Screenshot
+## Technologies Used
+
+This project was built using the following technologies:
+
+- HTML
+- CSS
+- JS
+
+## Live
+
+You can check out the live version of the project here -> [https://martinideniam.github.io/project-9-ecommerce-product-page/](https://martinideniam.github.io/project-9-ecommerce-product-page/).
+
+## Screenshots
 
 ![](./images/desktop.png)
 
-### Links
+## Contact Me
 
-- Solution URL: https://github.com/martinideniam/project-9-ecommerce-product-page
-- Live Site URL: https://martinideniam.github.io/project-9-ecommerce-product-page/
+For any inquiries or feedback, feel free to get in touch with me through:
 
-### Built with
+- [GitHub](https://github.com/vladislav-gorovenko)
+- [LinkedIn](https://www.linkedin.com/in/vladislavgorovenko/)
+- [FrontendMentor](https://www.frontendmentor.io/profile/martinideniam/)
+- [Telegram](https://t.me/vlad_webdev_iam)
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
+## Feedback
+
+If you have any feedback or suggestions, please open an issue here on [GitHub](https://github.com/vladislav-gorovenko/challenge-6-ecommerce-product-page/issues).
+
