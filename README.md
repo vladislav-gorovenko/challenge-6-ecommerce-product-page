@@ -1,6 +1,6 @@
 ## Live
 
-You can check out the live version of the project here -> [https://martinideniam.github.io/project-9-ecommerce-product-page/](https://martinideniam.github.io/project-9-ecommerce-product-page/).
+You can check out the live version of the project here -> [https://vladislav-gorovenko.github.io/challenge-9-ip-address-tracker/dist/index.html](https://vladislav-gorovenko.github.io/challenge-9-ip-address-tracker/dist/index.html).
 
 # e-Commerce Product Page
 
